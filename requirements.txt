@@ -7,3 +7,4 @@ plotly~=5.9.0
 pathlib~=1.0.1
 pillow>=10.3.0
 uvicorn
+gunicorn
