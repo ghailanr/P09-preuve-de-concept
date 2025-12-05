@@ -1,7 +1,8 @@
 import os
 import joblib
+import uvicorn
 from fastapi import FastAPI
-from utils import download_if_needed
+from utils import *
 
 app = FastAPI()
 
@@ -20,3 +21,8 @@ def load_artifacts():
 @app.get("/")
 def root():
     return {"status": "API ok", "cache": "enabled"}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
