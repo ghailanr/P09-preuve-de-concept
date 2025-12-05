@@ -8,8 +8,11 @@ import time
 # ---------------------------
 # CONFIGURATION DE LA PAGE
 # ---------------------------
-st.set_page_config(page_title="Prédiction en temps réel", page_icon="🧠", layout="wide")
-st.title("🧠 Prédiction en temps réel du sentiment d’un tweet")
+st.set_page_config(
+    page_title="Prédiction en temps réel",
+    layout="wide"
+)
+st.title("Prédiction en temps réel du sentiment d’un tweet")
 st.markdown("---")
 
 # ---------------------------
@@ -20,7 +23,7 @@ Cette page vous permet de **tester le modèle ModernBERT** sur un ou plusieurs t
 Vous pouvez saisir manuellement un texte ou importer un fichier CSV contenant une colonne `text`.
 """)
 
-st.info("ℹ️ Le modèle utilisé ici est la version ModernBERT entraînée sur le jeu de données Sentiment140.")
+st.info("Le modèle utilisé ici est la version ModernBERT entraînée sur le jeu de données Sentiment140.")
 
 # ---------------------------
 # CHARGEMENT DU MODÈLE (placeholder)
