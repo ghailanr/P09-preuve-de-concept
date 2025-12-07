@@ -8,3 +8,4 @@ pillow
 uvicorn
 gunicorn
 python-multipart
+fastapi
