@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'fastapi/**'
+      - 'azure_api/**'
       - 'requirements.txt'
       - '.github/workflows/main_fastapi-p9.yml'
   workflow_dispatch:

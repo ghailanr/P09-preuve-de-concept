@@ -1,2 +1,2 @@
 streamlit-app/data/*
-fastapi/models/*
+azure_api/models/*
