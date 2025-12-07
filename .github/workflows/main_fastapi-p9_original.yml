@@ -1,0 +1,74 @@
+#name: Build and deploy Python app to Azure Web App - fastapi-p9
+#
+#on:
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - 'fastapi/**'
+#      - 'requirements.txt'
+#      - '.github/workflows/main_fastapi-p9_original.yml'
+#  workflow_dispatch:
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#    permissions:
+#      contents: read #This is required for actions/checkout
+#
+#    steps:
+#      - uses: actions/checkout@v4
+#
+#      - name: Set up Python version
+#        uses: actions/setup-python@v5
+#        with:
+#          python-version: '3.10'
+#
+#      - name: Create and Start virtual environment and Install dependencies
+#        run: |
+#          python -m venv antenv
+#          source antenv/bin/activate
+#      - name: Install dependancies
+#        run: pip install -r requirements.txt
+#      - name: Zip artifact for deployment
+#        run: zip release.zip ./* -r
+#
+#      - name: Upload artifact for deployment jobs
+#        uses: actions/upload-artifact@v4
+#        with:
+#          name: python-app
+#          path: |
+#                release.zip
+#                !venv/
+#
+#  deploy:
+#    runs-on: ubuntu-latest
+#    needs: build
+#    environment:
+#      name: 'Production'
+#      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+#    permissions:
+#      id-token: write #This is required for requesting the JWT
+#      contents: read #This is required for actions/checkout
+#
+#    steps:
+#      - name: Download artifact from build job
+#        uses: actions/download-artifact@v4
+#        with:
+#          name: python-app
+#
+#      - name: Unzip artifact for deployment
+#        run: unzip release.zip
+#
+#      - name: Login to Azure
+#        uses: azure/login@v2
+#        with:
+#          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_7F63BC82346B4B418B70F433C62F0D03 }}
+#          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3F1CA89F0B1C4138B0B4CECF9BA6BC4F }}
+#          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6EE0973BDF4B43BCB3A99B782F191108 }}
+#
+#      - name: 'Deploy to Azure Web App'
+#        uses: azure/webapps-deploy@v3
+#        id: deploy-to-webapp
+#        with:
+#          app-name: 'fastapi-p9'
+#          slot-name: 'Production'
