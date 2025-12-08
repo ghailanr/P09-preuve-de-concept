@@ -5,9 +5,5 @@ wordcloud
 numpy
 plotly
 pillow
-uvicorn
-gunicorn
 python-multipart
-fastapi
-transformers
 azure-storage-blob
