@@ -28,8 +28,15 @@ def download_blob_to_file(blob_service_client, blob_name, local_path):
     print(f"✔ Fichier téléchargé : {local_path}")
 
 
-@app.on_event("startup")
-def startup_event():
+class TextInput(BaseModel):
+    text: str
+
+@app.get("/")
+def root():
+    return {"status": "API ok"}
+
+@app.get("/load_model")
+def load_model():
     global model, tokenizer
 
     logger.info("Loading ModernBERT model...")
@@ -54,16 +61,11 @@ def startup_event():
 
     logger.info("ModernBERT loaded!")
 
-class TextInput(BaseModel):
-    text: str
-
-@app.get("/")
-def root():
-    return {"status": "API ok", "model_loaded": model is not None}
 
 @app.post("/predict/")
 async def predict(payload: TextInput):
     print("WIP - prédiction bientôt intégrée.")
+    print("Is model loaded : ", model is not None)
     return {"text": payload.text, "prediction": "en cours"}
 
 if __name__ == "__main__":
