@@ -5,6 +5,10 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from azure.storage.blob import BlobServiceClient
 
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 app = FastAPI()
 
 CONTAINER_NAME = "models"
@@ -28,7 +32,7 @@ def download_blob_to_file(blob_service_client, blob_name, local_path):
 def startup_event():
     global model, tokenizer
 
-    print("Initialisation du modèle ModernBERT…")
+    logger.info("Loading ModernBERT model...")
 
     conn_str = os.getenv("AZURE_STORAGE_CONNECTION_STRING")
     if not conn_str:
@@ -48,7 +52,7 @@ def startup_event():
     with open(local_tokenizer_path, "rb") as f:
         tokenizer = pickle.load(f)
 
-    print("ModernBERT et tokenizer chargés en mémoire.")
+    logger.info("ModernBERT loaded!")
 
 class TextInput(BaseModel):
     text: str
