@@ -10,5 +10,4 @@ gunicorn
 python-multipart
 fastapi
 transformers
-torch
 azure-storage-blob
