@@ -24,8 +24,8 @@ with col1:
         st.image(str(logo_path), caption="POC - Sentiment140", width=200)
 with col2:
     st.markdown("""
-    ###Objectif du projet
-    Ce **Proof of Concept (POC)** vise à comparer BERT et ModernBERT pour
+    ###Objectif du projet###
+    Ce **POC** vise à comparer BERT et ModernBERT pour
     l’analyse du sentiment de tweets.
 
     Le modèle ModernBERT est comparé au modèle classique BERT sur plusieurs métriques :
@@ -37,7 +37,6 @@ with col2:
 
     🧩 L’application permet :
     - D’explorer le dataset (analyse exploratoire interactive)  
-    - De tester le moteur de prédiction en temps réel  
     - De comparer les modèles BERT et ModernBERT  
     - D’illustrer la prise en compte de l’**accessibilité (WCAG 2.1 AA)**
     """)
@@ -50,10 +49,7 @@ st.markdown("---")
 st.header("Structure de l’application")
 
 st.markdown("""
-L’application Streamlit se compose de **4 modules principaux** accessibles via le menu latéral :
-
 **Analyse exploratoire** – Visualisation du dataset Sentiment140  
-**Prédiction en temps réel** – Testez un tweet ou un fichier CSV  
 **Comparaison des modèles** – BERT vs ModernBERT  
 **Accessibilité & Design** – Respect des critères WCAG et ergonomie  
 """)
@@ -107,5 +103,5 @@ st.markdown("---")
 st.markdown("### Prêt à explorer le POC ?")
 
 if st.button("Lancer l'analyse exploratoire"):
-    st.switch_page("pages/01_analyse.py.py")
+    st.switch_page("pages/01_analyse.py")
 
