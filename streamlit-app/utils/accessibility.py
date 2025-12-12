@@ -25,22 +25,6 @@ def apply_accessibility_settings(theme: str = "Clair", font_size: int = 16):
             unsafe_allow_html=True
         )
 
-
-def describe_accessibility_features():
-    """
-    Affiche un encadré récapitulatif des fonctionnalités d’accessibilité activées.
-    """
-    st.markdown("---")
-    st.subheader("♿ Accessibilité")
-    st.markdown("""
-    ✅ **Critères WCAG 2.1 niveau AA couverts :**
-    - Contraste colorimétrique minimal 4.5:1  
-    - Taille de texte ajustable (12–22 px)  
-    - Thème clair/sombre au choix  
-    - Légendes descriptives sur tous les graphiques  
-    """)
-
-
 def accessible_color_palette() -> List[str]:
     """
     Palette de couleurs respectant les contrastes recommandés par le WCAG 2.1 AA.

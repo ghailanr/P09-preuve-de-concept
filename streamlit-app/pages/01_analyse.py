@@ -80,8 +80,3 @@ ax.imshow(wordcloud, interpolation="bilinear")
 ax.axis("off")
 st.pyplot(fig)
 st.caption("Représentation visuelle des mots les plus fréquents dans l’ensemble des tweets.")
-
-# ---------------------------
-# SECTION 4 : ACCESSIBILITÉ
-# ---------------------------
-describe_accessibility_features()
