@@ -1,2 +1,3 @@
 streamlit-app/data/*
 azure_api/models/*
+**/__pycache__/
