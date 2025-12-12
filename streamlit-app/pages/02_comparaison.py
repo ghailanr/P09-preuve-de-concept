@@ -83,7 +83,7 @@ chart3 = alt.Chart(cat_df).mark_bar().encode(
     tooltip=["category", "count"]
 ).properties(title="Répartition des types d'erreurs")
 
-st.altair_chart(chart3, use_container_width=True)
+st.altair_chart(chart3, width='content')
 
 
 # ---------------------------------

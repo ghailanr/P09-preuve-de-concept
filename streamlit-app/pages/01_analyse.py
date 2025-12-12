@@ -32,7 +32,7 @@ df = load_data(data_path)
 # APERÇU RAPIDE DU JEU DE DONNÉES
 # ---------------------------
 st.subheader("Aperçu du jeu de données")
-st.dataframe(df.sample(5), use_container_width=True)
+st.dataframe(df.sample(5), width='content')
 
 # ---------------------------
 # SECTION 1 : LONGUEUR DES TWEETS
@@ -43,7 +43,7 @@ st.markdown("### Analyse 1 — Distribution de la longueur des tweets")
 df["tweet_length"] = df["tweet"].astype(str).apply(len)
 
 fig_len = plot_length_distribution(df, "tweet_length")
-st.plotly_chart(fig_len, use_container_width=True)
+st.plotly_chart(fig_len, width='content')
 
 st.caption("Ce graphique montre la distribution du nombre de caractères par tweet.")
 
@@ -56,7 +56,7 @@ sentiments = df["target"].unique()
 sent_choice = st.selectbox("Choisir un sentiment à explorer :", sentiments)
 
 fig_freq = plot_word_frequency(df, sentiment_col="target", text_col="tweet", sentiment_value=sent_choice)
-st.plotly_chart(fig_freq, use_container_width=True)
+st.plotly_chart(fig_freq, width='content')
 
 st.caption("Ce graphique présente les mots les plus fréquents pour le sentiment sélectionné.")
 
