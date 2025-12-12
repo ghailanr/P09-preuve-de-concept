@@ -9,14 +9,11 @@ from utils.visualization import (
     plot_word_frequency
 )
 from utils.accessibility import describe_accessibility_features, apply_accessibility_settings
-
+from utils.theme import apply_theme
+apply_theme()
 # ---------------------------
 # CONFIGURATION DE LA PAGE
 # ---------------------------
-st.set_page_config(
-    page_title="Analyse exploratoire – Sentiment140",
-    layout="wide"
-)
 st.title("Analyse exploratoire du jeu de données Sentiment140")
 st.markdown("---")
 

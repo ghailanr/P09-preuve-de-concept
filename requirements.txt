@@ -7,3 +7,4 @@ plotly
 pillow
 python-multipart
 azure-storage-blob
+altair
