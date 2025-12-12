@@ -8,7 +8,7 @@ from utils.visualization import (
     plot_length_distribution,
     plot_word_frequency
 )
-from utils.accessibility import describe_accessibility_features, apply_accessibility_settings
+from utils.accessibility import apply_accessibility_settings
 from utils.theme import apply_theme
 apply_theme()
 # ---------------------------
